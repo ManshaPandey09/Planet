@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mars - The Planets</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">THE PLANETS</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="mercury.html">MERCURY</a></li>
+        <li><a href="venus.html">VENUS</a></li>
+        <li><a href="index.html">EARTH</a></li>
+        <li class="active"><a href="mars.html">MARS</a></li>
+        <li><a href="jupiter.html">JUPITER</a></li>
+        <li><a href="saturn.html">SATURN</a></li>
+        <li><a href="uranus.html">URANUS</a></li>
+        <li><a href="neptune.html">NEPTUNE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="planet-image">
+      <img src="/img/mars.png" alt="Mars" class="rotating" />
+    </div>
+
+    <div class="planet-info">
+      <h2>MARS</h2>
+      <p class="description">
+        Mars is the fourth planet from the Sun and is known as the Red Planet due to its reddish appearance. It has the tallest volcano and the deepest canyon in the solar system and is a major target for exploration for signs of life.
+      </p>
+      <p class="source">Source: <a href="https://wikipedia.org" target="_blank">Wikipedia ↗</a></p>
+
+      <div class="tabs">
+        <button class="tab active" onclick="changeTab('overview')">01 OVERVIEW</button>
+        <button class="tab" onclick="changeTab('structure')">02 INTERNAL STRUCTURE</button>
+        <button class="tab" onclick="changeTab('geology')">03 SURFACE GEOLOGY</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat">
+      <span>ROTATION TIME</span>
+      <p>1.03 DAYS</p>
+    </div>
+    <div class="stat">
+      <span>REVOLUTION TIME</span>
+      <p>1.88 YEARS</p>
+    </div>
+    <div class="stat">
+      <span>RADIUS</span>
+      <p>3,389.5 KM</p>
+    </div>
+    <div class="stat">
+      <span>AVERAGE TEMP.</span>
+      <p>-28°C</p>
+    </div>
+  </section>
+
+  <script>
+    const tabDescriptions = {
+      overview: "Mars is the fourth planet from the Sun and is known as the Red Planet due to its reddish appearance. It has the tallest volcano and the deepest canyon in the solar system and is a major target for exploration for signs of life.",
+      structure: "Mars has a dense core of iron, nickel, and sulfur surrounded by a silicate mantle and a thin crust. Its core may be partially liquid.",
+      geology: "Mars features vast plains, enormous volcanoes like Olympus Mons, and valleys like Valles Marineris. The planet also shows evidence of ancient riverbeds."
+    };
+
+    function changeTab(tabName) {
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      if (tabName === 'overview') {
+        document.querySelectorAll('.tab')[0].classList.add('active');
+      } else if (tabName === 'structure') {
+        document.querySelectorAll('.tab')[1].classList.add('active');
+      } else {
+        document.querySelectorAll('.tab')[2].classList.add('active');
+      }
+
+      document.querySelector('.description').textContent = tabDescriptions[tabName];
+    }
+  </script>
+</body>
+</html>

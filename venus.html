@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Venus - The Planets</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">THE PLANETS</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="mercury.html">MERCURY</a></li>
+        <li class="active"><a href="venus.html">VENUS</a></li>
+        <li><a href="index.html">EARTH</a></li>
+        <li><a href="mars.html">MARS</a></li>
+        <li><a href="jupiter.html">JUPITER</a></li>
+        <li><a href="saturn.html">SATURN</a></li>
+        <li><a href="uranus.html">URANUS</a></li>
+        <li><a href="neptune.html">NEPTUNE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="planet-image">
+      <img src="/img/venus.png" alt="Venus" class="rotating" />
+    </div>
+
+    <div class="planet-info">
+      <h2>VENUS</h2>
+      <p class="description">
+        Venus is the second planet from the Sun and has a thick, toxic atmosphere that traps heat, making it the hottest planet in our solar system. Its surface is covered with volcanoes and deformed mountains due to tectonic activity.
+      </p>
+      <p class="source">Source: <a href="https://wikipedia.org" target="_blank">Wikipedia ↗</a></p>
+
+      <div class="tabs">
+        <button class="tab active" onclick="changeTab('overview')">01 OVERVIEW</button>
+        <button class="tab" onclick="changeTab('structure')">02 INTERNAL STRUCTURE</button>
+        <button class="tab" onclick="changeTab('geology')">03 SURFACE GEOLOGY</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat">
+      <span>ROTATION TIME</span>
+      <p>243 DAYS</p>
+    </div>
+    <div class="stat">
+      <span>REVOLUTION TIME</span>
+      <p>224.7 DAYS</p>
+    </div>
+    <div class="stat">
+      <span>RADIUS</span>
+      <p>6,051.8 KM</p>
+    </div>
+    <div class="stat">
+      <span>AVERAGE TEMP.</span>
+      <p>471°C</p>
+    </div>
+  </section>
+
+  <script>
+    const tabDescriptions = {
+      overview: "Venus is the second planet from the Sun and has a thick, toxic atmosphere that traps heat, making it the hottest planet in our solar system. Its surface is covered with volcanoes and deformed mountains due to tectonic activity.",
+      structure: "Venus has a central iron core and a rocky mantle, similar in composition to Earth, but with a much denser and hotter atmosphere due to greenhouse gases.",
+      geology: "The surface of Venus is shaped by extensive volcanic activity, with lava plains, deformed highland regions, and vast coronae caused by mantle upwelling."
+    };
+
+    function changeTab(tabName) {
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      if (tabName === 'overview') {
+        document.querySelectorAll('.tab')[0].classList.add('active');
+      } else if (tabName === 'structure') {
+        document.querySelectorAll('.tab')[1].classList.add('active');
+      } else {
+        document.querySelectorAll('.tab')[2].classList.add('active');
+      }
+
+      document.querySelector('.description').textContent = tabDescriptions[tabName];
+    }
+  </script>
+</body>
+</html>
